@@ -1,20 +1,36 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Mohaweel AI - محول الصور الذكي
 
-# Run and deploy your AI Studio app
+تطبيق ويب حديث لتحويل وتعديل الصور باستخدام الذكاء الاصطناعي (Gemini 2.5 Flash Model).
 
-This contains everything you need to run your app locally.
+## طريقة التشغيل محلياً (Local Development)
 
-View your app in AI Studio: https://ai.studio/apps/drive/1xLfOY938SrhtYN9FNBjs17LT2h-KVjVL
+1. تأكد من تثبيت Node.js.
+2. قم بتثبيت الحزم:
+   ```bash
+   npm install
+   ```
+3. قم بإنشاء ملف `.env` في المجلد الرئيسي وأضف مفتاح API الخاص بك:
+   ```env
+   API_KEY=your_gemini_api_key_here
+   ```
+4. شغل المشروع:
+   ```bash
+   npm run dev
+   ```
 
-## Run Locally
+## طريقة النشر على Vercel
 
-**Prerequisites:**  Node.js
+1. ارفع المشروع على حسابك في **GitHub**.
+2. اذهب إلى **Vercel** وأنشئ مشروع جديد (New Project).
+3. اختر المستودع (Repository) الذي قمت برفعه.
+4. سيقوم Vercel باكتشاف إعدادات Vite تلقائياً (Framework Preset: Vite).
+5. **خطوة هامة جداً**: في قسم **Environment Variables**، أضف المتغير التالي:
+   - **Name**: `API_KEY`
+   - **Value**: (ضع مفتاح Gemini API الخاص بك هنا)
+6. اضغط **Deploy**.
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## التقنيات المستخدمة
+- React 18
+- Vite
+- Tailwind CSS
+- Google GenAI SDK (Gemini 2.5 Flash)
