@@ -9,9 +9,11 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     define: {
-      // This is necessary to prevent "process is not defined" error in the browser
-      // and to inject the API key during build time.
-      'process.env.API_KEY': JSON.stringify(env.API_KEY)
+      // Replace process.env.API_KEY with the actual value during build
+      'process.env.API_KEY': JSON.stringify(env.API_KEY),
+      // Define process.env as an empty object to prevent "process is not defined" errors
+      // if any dependency tries to access it directly.
+      'process.env': {}
     }
   };
 });
